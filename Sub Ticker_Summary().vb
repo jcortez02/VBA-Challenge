@@ -60,11 +60,8 @@ Sub Ticker_Summary()
          Value_Change_Total = Opening_Date_Value - Closing_Date_Value
 
          'Find Change Total Value Percentage
-         Value_Change_Total_Percentage = Opening_Date_Value/Closing_Date_Value
-
-         'Change Format in Column 11
-         Cells(i,11).NumberFormat = "0.00%"
-
+         Value_Change_Total_Percentage = Value_Change_Total/Opening_Date_Value
+        
          'Print the Symbol Ticker Change in Summary Table
          Range("I" & Summary_Table_Row).Value = Symbol_Ticker_Name
 
@@ -72,7 +69,7 @@ Sub Ticker_Summary()
          Range("J" & Summary_Table_Row).Value = Value_Change_Total
 
          'Print the Symbol Ticker Change % in Summary Table
-         Range("K" & Summary_Table_Row).Value = Value_Change_Total_Percentage
+         Range("K" & Summary_Table_Row).Value = Format(Value_Change_Total_Percentage,"0.00%")
 
          'Print the Symbol Ticker Total in Summary Table
          Range("L" & Summary_Table_Row).Value = Symbol_Ticker_Total
@@ -88,7 +85,7 @@ Sub Ticker_Summary()
 
          'Rest the opening value of ticker
          Opening_Date_Value = Cells(i + 1, 3)
-   
+
     
     'If the cell immediatley following a row is the same brand....
     Else
@@ -102,3 +99,9 @@ Sub Ticker_Summary()
     
     End Sub
     
+
+
+
+
+
+
